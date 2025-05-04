@@ -1,19 +1,19 @@
-import { v4 as uuidv4 } from "uuid"
+import { v4 as uuidv4 } from "uuid";
 import Button from "../Button";
-import style from "./Form.module.scss"
+import style from "./Form.module.scss";
 import type { ITask } from "../../types/task";
 import { Dispatch, SetStateAction, useState } from "react";
 
 interface IProps {
-  setTasks: Dispatch<SetStateAction<ITask[]>>
+  setTasks: Dispatch<SetStateAction<ITask[]>>;
 }
 
 export default function Form({ setTasks }: IProps) {
-  const [name, setName] = useState<string>("")
-  const [time, setTime] = useState<string>("00:00:00")
+  const [name, setName] = useState<string>("");
+  const [time, setTime] = useState<string>("00:00:00");
 
   function addTask(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault()
+    event.preventDefault();
     setTasks(previous => [
       ...previous,
       {
@@ -23,9 +23,9 @@ export default function Form({ setTasks }: IProps) {
         isSelected: false,
         isFinished: false
       }
-    ])
-    setName("")
-    setTime("00:00:00")
+    ]);
+    setName("");
+    setTime("00:00:00");
   }
 
   return (

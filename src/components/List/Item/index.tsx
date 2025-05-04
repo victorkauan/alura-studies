@@ -1,5 +1,5 @@
-import type { ITask } from "../../../types/task"
-import style from "./Item.module.scss"
+import type { ITask } from "../../../types/task";
+import style from "./Item.module.scss";
 
 interface IProps extends ITask {
   selectTask: (Task: ITask) => void;
@@ -15,7 +15,7 @@ export default function Item({
 }: IProps) {
   return (
     <li
-      className={`${style.item} ${isSelected ? style.selectedItem : ''} ${isFinished ? style.finishedItem : ''}`}
+      className={`${style.item} ${isSelected ? style.selectedItem : ""} ${isFinished ? style.finishedItem : ""}`}
       onClick={() => !isFinished && selectTask({
         id,
         name,
@@ -28,5 +28,5 @@ export default function Item({
       <span>{time}</span>
       {isFinished && <span className={style.finished} aria-label="Finished task" />}
     </li>
-  )
+  );
 }

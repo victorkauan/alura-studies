@@ -2,31 +2,31 @@ import { useEffect, useState } from "react";
 import type { ITask } from "../../types/task";
 import Button from "../Button";
 import Clock from "./Clock";
-import style from "./Timer.module.scss"
+import style from "./Timer.module.scss";
 import { timeToSeconds } from "../../common/utils/time";
 
 interface IProps {
-  selectedTask?: ITask
-  finishTask: () => void
+  selectedTask?: ITask;
+  finishTask: () => void;
 }
 
 export default function Timer({ selectedTask, finishTask }: IProps) {
-  const [time, setTime] = useState<number>()
+  const [time, setTime] = useState<number>();
 
   useEffect(() => {
     if (selectedTask?.time) {
-      setTime(timeToSeconds(selectedTask.time))
+      setTime(timeToSeconds(selectedTask.time));
     }
-  }, [selectedTask])
+  }, [selectedTask]);
 
   function countdown(counter: number = 0) {
     setTimeout(() => {
       if (counter > 0) {
-        setTime(counter - 1)
-        return countdown(counter - 1)
+        setTime(counter - 1);
+        return countdown(counter - 1);
       }
-      finishTask()
-    }, 1000)
+      finishTask();
+    }, 1000);
   }
 
   return (
@@ -39,5 +39,5 @@ export default function Timer({ selectedTask, finishTask }: IProps) {
         Start
       </Button>
     </div>
-  )
+  );
 }

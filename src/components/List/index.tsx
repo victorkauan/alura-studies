@@ -1,5 +1,5 @@
 import Item from "./Item";
-import style from "./List.module.scss"
+import style from "./List.module.scss";
 import type { ITask } from "../../types/task";
 
 interface IProps {
