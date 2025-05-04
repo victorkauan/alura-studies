@@ -9,9 +9,9 @@ export default function List() {
   ]
 
   return (
-    <aside>
+    <aside className={style.taskList}>
       <h2>Studies of the day</h2>
-      <ul className={style.taskList}>
+      <ul>
         {tasks.map((task, index) => <Item key={index} {...task} />)}
       </ul>
     </aside>
