@@ -1,4 +1,4 @@
-import style from '../List.module.scss'
+import style from "../List.module.scss"
 
 export default function Item({ name, time }: { name: string, time: string }) {
   return (
