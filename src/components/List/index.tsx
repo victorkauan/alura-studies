@@ -1,3 +1,5 @@
+import './style.scss'
+
 export default function List() {
   const tasks = [
     { name: 'JavaScript', time: '00:30:00' },
@@ -8,9 +10,9 @@ export default function List() {
   return (
     <aside>
       <h2>Studies of the day</h2>
-      <ul>
+      <ul className="taskList">
         {tasks.map((task, index) => (
-          <li key={index}>
+          <li key={index} className="item">
             <h3>{task.name}</h3>
             <span>{task.time}</span>
           </li>
