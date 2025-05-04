@@ -7,9 +7,10 @@ import { timeToSeconds } from "../../common/utils/time";
 
 interface IProps {
   selectedTask?: ITask
+  finishTask: () => void
 }
 
-export default function Timer({ selectedTask }: IProps) {
+export default function Timer({ selectedTask, finishTask }: IProps) {
   const [time, setTime] = useState<number>()
 
   useEffect(() => {
@@ -24,6 +25,7 @@ export default function Timer({ selectedTask }: IProps) {
         setTime(counter - 1)
         return countdown(counter - 1)
       }
+      finishTask()
     }, 1000)
   }
 

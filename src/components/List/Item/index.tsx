@@ -15,8 +15,8 @@ export default function Item({
 }: IProps) {
   return (
     <li
-      className={`${style.item} ${isSelected ? style.selectedItem : ''}`}
-      onClick={() => selectTask({
+      className={`${style.item} ${isSelected ? style.selectedItem : ''} ${isFinished ? style.finishedItem : ''}`}
+      onClick={() => !isFinished && selectTask({
         id,
         name,
         time,
@@ -26,6 +26,7 @@ export default function Item({
     >
       <h3>{name}</h3>
       <span>{time}</span>
+      {isFinished && <span className={style.finished} aria-label="Finished task" />}
     </li>
   )
 }

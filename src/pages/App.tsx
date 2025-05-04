@@ -17,11 +17,28 @@ export default function App() {
     })))
   }
 
+  function finishTask() {
+    if (selectedTask) {
+      setSelectedTask(undefined)
+      setTasks(previous => previous.map(previousTask => {
+        if (previousTask.id !== selectedTask.id) {
+          return previousTask
+        }
+
+        return {
+          ...previousTask,
+          isSelected: false,
+          isFinished: true
+        }
+      }))
+    }
+  }
+
   return (
     <div className={style.AppStyle}>
       <Form setTasks={setTasks} />
       <List tasks={tasks} selectTask={selectTask} />
-      <Timer selectedTask={selectedTask} />
+      <Timer selectedTask={selectedTask} finishTask={finishTask} />
     </div>
   );
 }
