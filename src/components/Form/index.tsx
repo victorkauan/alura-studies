@@ -6,13 +6,11 @@ import type { ITask } from "../../types/task";
 export default class Form extends React.Component<{
   setTasks: React.Dispatch<React.SetStateAction<ITask[]>>
 }> {
-  state = {
-    name: "",
-    time: "00:00:00"
-  }
+  state = { name: "", time: "00:00:00" }
   addTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
     this.props.setTasks(previous => [...previous, this.state])
+    this.setState({ name: "", time: "00:00:00" })
   }
   render() {
     return (
