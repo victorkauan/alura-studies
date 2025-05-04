@@ -1,13 +1,8 @@
 import Item from "./Item";
 import style from "./List.module.scss"
+import type { ITask } from "../../types/task";
 
-export default function List() {
-  const tasks = [
-    { name: "JavaScript", time: "00:30:00" },
-    { name: "React", time: "01:00:00" },
-    { name: "TypeScript", time: "01:30:00" }
-  ]
-
+export default function List({ tasks }: { tasks: ITask[] }) {
   return (
     <aside className={style.taskList}>
       <h2>Studies of the day</h2>
